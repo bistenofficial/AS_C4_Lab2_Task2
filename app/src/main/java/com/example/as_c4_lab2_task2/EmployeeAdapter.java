@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +21,10 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         // for any view that will be set as you render a row
         public TextView name;
         public ImageView photo;
+        public TextView rating;
+        public TextView strok;
+        public TextView project;
+        public TextView team;
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
@@ -30,6 +33,10 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
             // to access the context from any ViewHolder instance.
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.textViewName);
+            rating = (TextView) itemView.findViewById(R.id.textViewRating);
+            strok = (TextView) itemView.findViewById(R.id.textViewStrok);
+            project = (TextView) itemView.findViewById(R.id.textViewProject);
+            team = (TextView) itemView.findViewById(R.id.textViewTeam);
             photo = (ImageView) itemView.findViewById(R.id.imageView);
         }
     }
@@ -54,6 +61,18 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         // Set item views based on your views and data model
         TextView name = holder.name;
         name.setText(employee.getfName()+" "+employee.getsName());
+
+        TextView rating = holder.rating;
+        rating.setText(employee.getfName()+" "+employee.getsName());
+
+        TextView strok = holder.strok;
+        strok.setText(employee.getfName()+" "+employee.getsName());
+
+        TextView project = holder.project;
+        project.setText(employee.getProject()+"\n Проектов");
+
+        TextView team = holder.team;
+        team.setText("Команда: "+employee.getTeam());
 
         ImageView photo = holder.photo;
         photo.setImageResource(employee.getPhoto());
